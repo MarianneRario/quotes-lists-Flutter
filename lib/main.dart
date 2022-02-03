@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 //import quote.dart class
 import 'quote.dart';
+//import quote-card.dart class (template)
+import 'quote-card.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -56,39 +58,40 @@ class _QuoteListState extends State<QuoteList> {
   }
 }
 
-class QuoteCard extends StatelessWidget {
-  //to accept the parameter, create a constructor
-  final Quote quote;
+// THIS CLASS CAN STILL BE USE FOR ANOTHER TEMPLATE RENDERING, SO PUT IT IN ANOTHER FILE AND JUST IMPORT IT
+// class QuoteCard extends StatelessWidget {
+//   //to accept the parameter, create a constructor
+//   final Quote quote;
 
-  QuoteCard({required this.quote});
+//   QuoteCard({required this.quote});
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          //stretch the card from left to right
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            //text container for Quote Text
-            Text(
-              quote.text,
-              style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
-            ),
-            //vertical space using sizedbox
-            const SizedBox(
-              height: 6.0,
-            ),
-            //text container for Quote Author
-            Text(
-              quote.author,
-              style: TextStyle(fontSize: 14.0, color: Colors.grey[800]),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+//       child: Padding(
+//         padding: const EdgeInsets.all(12.0),
+//         child: Column(
+//           //stretch the card from left to right
+//           crossAxisAlignment: CrossAxisAlignment.stretch,
+//           children: <Widget>[
+//             //text container for Quote Text
+//             Text(
+//               quote.text,
+//               style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
+//             ),
+//             //vertical space using sizedbox
+//             const SizedBox(
+//               height: 6.0,
+//             ),
+//             //text container for Quote Author
+//             Text(
+//               quote.author,
+//               style: TextStyle(fontSize: 14.0, color: Colors.grey[800]),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
