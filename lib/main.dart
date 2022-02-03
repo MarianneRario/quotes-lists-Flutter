@@ -53,7 +53,17 @@ class _QuoteListState extends State<QuoteList> {
           //add ".toList()" at the end to resolve error and to turn the "quotes.map" into a List
           //because the "children property" expects a List
           //this returns an iterable and list widgets
-          children: quotes.map((quote) => QuoteCard(quote: quote)).toList()),
+          children: quotes
+              .map((quote) => QuoteCard(
+                  quote: quote,
+                  //pass a function for delete of quote
+                  delete: () {
+                    //declare a setstate function that will remove a quote from a quotes list
+                    setState(() {
+                      quotes.remove(quote);
+                    });
+                  }))
+              .toList()),
     );
   }
 }
