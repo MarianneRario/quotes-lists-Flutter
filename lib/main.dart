@@ -29,9 +29,9 @@ class _QuoteListState extends State<QuoteList> {
   ];
   //function that will return a card widget template for our quotes
   //[return type] [function name]
-  Widget quoteTemplate(quote) {
-    return QuoteCard(quote: quote); //pass a quote parameter to the QuoteCard class
-  }
+  // Widget quoteTemplate(quote) {
+  //   return QuoteCard(quote: quote); //pass a quote parameter to the QuoteCard class
+  // } REMOVE THE FUNCTION BECAUSE IT IS ALREADY REDUNDANT
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _QuoteListState extends State<QuoteList> {
           //add ".toList()" at the end to resolve error and to turn the "quotes.map" into a List
           //because the "children property" expects a List
           //this returns an iterable and list widgets
-          children: quotes.map((quote) => quoteTemplate(quote)).toList()),
+          children: quotes.map((quote) => QuoteCard(quote: quote)).toList()),
     );
   }
 }
