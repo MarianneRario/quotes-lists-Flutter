@@ -26,13 +26,41 @@ class _QuoteListState extends State<QuoteList> {
         text: "I have nothing to declare except my genius.",
         author: "Oscar Wilde"),
     Quote(text: "The truth is rarely pure and simple.", author: "Oscar Wilde")
-
-    // instead of using this hard coded quotes, use Quote object
-    // "Learning to write programs stretches your mind, and helps you think better, creates a way of thinking about things that I think is helpful in all domains.",
-    // "A background in computer science provides a strong foundation for nearly any career path in any industry in the 21st-century economy.",
-    // "Smooth seas do not make skillful sailors.",
-    // "Learning to code is learning to create and innovate. We want our young people, who have such enormous talent, to acquire this skill, so that they will become the trailblazers who will shape and change our future."
   ];
+  //function that will return a card widget template for our quotes
+  //[return type] [function name]
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          //stretch the card from left to right
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+          //text container for Quote Text
+          Text(
+            quote.text,
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.grey[600]
+            ),
+            ),
+          //vertical space using sizedbox
+          const SizedBox(height: 6.0,),
+          //text container for Quote Author
+          Text(
+            quote.author,
+            style: TextStyle(
+              fontSize: 14.0,
+              color: Colors.grey[800]
+            ),
+          )
+          ],
+          ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +80,7 @@ class _QuoteListState extends State<QuoteList> {
           //add ".toList()" at the end to resolve error and to turn the "quotes.map" into a List
           //because the "children property" expects a List
           //this returns an iterable and list widgets
-          children: quotes
-              .map((quote) => Text("${quote.text} - ${quote.author}"))
-              .toList()),
+          children: quotes.map((quote) => quoteTemplate(quote)).toList()),
     );
-  }
+  } 
 }
-
-//function that will return a card widget template for our quotes
