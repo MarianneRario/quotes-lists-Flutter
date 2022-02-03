@@ -47,6 +47,20 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: true,
         backgroundColor: Colors.pink[200],
       ),
+      //add floating button to add quotes
+      floatingActionButton: FloatingActionButton(
+        //on press function
+        onPressed: () {
+          //if need magbago ng state
+          setState(() {
+            quotes.add(Quote(text: "Quote", author: "Author"));
+          });
+          
+        },
+        //button icon
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.pinkAccent,
+      ),
       //body property (column layout)
       body: Column(
           //.map cycle to a list of data
